@@ -25,6 +25,12 @@ def read_tasks(user_id: int, db: Session = Depends(get_db)):
     tasks=db.query(models.Task).filter (models.Task.owner_id == user_id).all()
     return tasks
 
+
+@router.get('', response_model=List[schemas.TaskResponse])
+def get_tasks(db: Session = Depends(get_db)):
+    tasks = db.query(models.Task).all()
+    return tasks
+
 @router.patch("/{task_id}", response_model=schemas.TaskResponse)
 def update_task(task_id: int, task_update: schemas.TaskUpdate, db: Session = Depends(get_db)):
 

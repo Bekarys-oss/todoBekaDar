@@ -59,11 +59,18 @@
   </form>
 </div>
 <script>
-  async function getMessage() {
-      const res = await fetch("http://127.0.0.1:8080");
+async function loadTasks() {
+      const res = await fetch("http://127.0.0.1:8080/tasks");
       const data = await res.json();
 
-      document.getElementById().innerText = data.text;
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      data.forEach(task => {
+        const li = document.createElement("li");
+        li.innerText = task.title;
+        list.appendChild(li);
+      });
     }
 </script>
 </body>
