@@ -1,0 +1,77 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div>
+  <form id="loginForm" class="login-box">
+    <h2>Регистарция</h2>
+    <div class="input_box">
+      <input class="input" type="text" id="username" placeholder="Username">
+    </div>
+    <div class="input_box">
+      <input class="input" type="password" id="password" placeholder="Password">
+    </div>
+    <button type="submit">Зарегистрировать</button>
+    <form id="loginForm" class="login-box" action="index_2.html">
+      <button>Аккаунт</button>
+    </form>
+  </form>
+</div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div>
+  <form id="registerForm" class="login-box">
+    <h2>Регистрация</h2>
+
+    <div class="input_box">
+      <input class="input" type="text" id="username" placeholder="Username">
+    </div>
+
+    <div class="input_box">
+      <input class="input" type="password" id="password" placeholder="Password">
+    </div>
+
+    <button type="submit">Зарегистрировать</button>
+
+    <!-- КНОПКА ПЕРЕХОДА -->
+    <a href="index_2.html">
+      <button type="button">Есть Аккаунт</button>
+    </a>
+
+  </form>
+</div>
+<script>
+async function loadTasks() {
+      const res = await fetch("http://127.0.0.1:8080/tasks");
+      const data = await res.json();
+
+      const list = document.getElementById("list");
+      list.innerHTML = "";
+
+      data.forEach(task => {
+        const li = document.createElement("li");
+        li.innerText = task.title;
+        list.appendChild(li);
+      });
+    }
+</script>
+</body>
+</html>
